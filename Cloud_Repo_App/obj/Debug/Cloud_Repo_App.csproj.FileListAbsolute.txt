@@ -1,0 +1,12 @@
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.csprojAssemblyReference.cache
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.Login.resources
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.Properties.Resources.resources
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.Register.resources
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.csproj.GenerateResource.cache
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.csproj.CoreCompileInputs.cache
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\bin\Debug\Cloud_Repo_App.exe.config
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\bin\Debug\Cloud_Repo_App.exe
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\bin\Debug\Cloud_Repo_App.pdb
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.exe
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.pdb
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.Entry_point.resources
