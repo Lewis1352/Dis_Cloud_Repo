@@ -49,6 +49,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Entry_point";
             this.Text = "Entry_point";
+            this.Shown += new System.EventHandler(this.Entry_point_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

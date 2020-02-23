@@ -10,17 +10,20 @@ using System.Windows.Forms;
 
 namespace Cloud_Repo_App
 {
-    public partial class Login : Entry_point
+    public partial class Login : Form
     {
 
-        public Login()
+        Entry_point controller;
+
+        public Login(Entry_point mainForm)
         {
             InitializeComponent();
+            controller = mainForm;
         }
 
         private void Register_button_Click(object sender, EventArgs e)
         {
-            DisplayRegisterForm();
+            controller.CurrentState = (int)EnumState.Register;
         }
 
         private void Login_button_Click(object sender, EventArgs e)
@@ -35,7 +38,7 @@ namespace Cloud_Repo_App
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Application.Exit();
         }
     }
 }

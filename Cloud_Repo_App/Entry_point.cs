@@ -19,9 +19,9 @@ namespace Cloud_Repo_App
 
     public partial class Entry_point : Form
     {
-        Login loginForm = new Login();
-        Register registerForm = new Register();
 
+        Login loginForm;
+        Register registerForm;
         private int currentState;
 
         public int CurrentState
@@ -40,21 +40,17 @@ namespace Cloud_Repo_App
         public Entry_point()
         {
             InitializeComponent();
-            CurrentState = (int)EnumState.Login;
-
-
-
-            this.Hide();
-            loginForm.Show();
+            loginForm = new Login(this);
+            registerForm = new Register(this);
         }
 
-        public void DisplayLoginForm()
+        private void DisplayLoginForm()
         {
             registerForm.Hide();
             loginForm.Show();
         }
 
-        public void DisplayRegisterForm()
+        private void DisplayRegisterForm()
         {
             registerForm.Show();
             loginForm.Hide();
@@ -64,14 +60,19 @@ namespace Cloud_Repo_App
         {
             if (state == (int)EnumState.Login)
             {
-                
+                DisplayLoginForm();
             }
             if (state == (int)EnumState.Register)
             {
-                
+                DisplayRegisterForm();
             }
         }
 
-
+        private void Entry_point_Shown(object sender, EventArgs e)
+        {
+            CurrentState = (int)EnumState.Login;
+            this.Hide();
+            //loginForm.Show();
+        }
     }
 }
