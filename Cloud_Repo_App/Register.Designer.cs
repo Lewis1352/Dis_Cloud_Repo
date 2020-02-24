@@ -47,6 +47,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(218, 192);
             this.label1.Name = "label1";
@@ -56,6 +57,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(246, 156);
             this.label2.Name = "label2";
@@ -65,6 +67,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(249, 229);
             this.label3.Name = "label3";
@@ -74,6 +77,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(222, 306);
             this.label4.Name = "label4";
@@ -83,6 +87,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(200, 266);
             this.label5.Name = "label5";
@@ -92,6 +97,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(173, 346);
             this.label6.Name = "label6";
@@ -101,6 +107,7 @@
             // 
             // RegisterName_textbox
             // 
+            this.RegisterName_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterName_textbox.Location = new System.Drawing.Point(301, 153);
             this.RegisterName_textbox.Name = "RegisterName_textbox";
             this.RegisterName_textbox.Size = new System.Drawing.Size(206, 22);
@@ -108,6 +115,7 @@
             // 
             // RegisterUsername_textbox
             // 
+            this.RegisterUsername_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterUsername_textbox.Location = new System.Drawing.Point(301, 189);
             this.RegisterUsername_textbox.Name = "RegisterUsername_textbox";
             this.RegisterUsername_textbox.Size = new System.Drawing.Size(206, 22);
@@ -115,6 +123,7 @@
             // 
             // RegisterEmail_textbox
             // 
+            this.RegisterEmail_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterEmail_textbox.Location = new System.Drawing.Point(301, 226);
             this.RegisterEmail_textbox.Name = "RegisterEmail_textbox";
             this.RegisterEmail_textbox.Size = new System.Drawing.Size(206, 22);
@@ -122,6 +131,7 @@
             // 
             // RegisterReEmail_textbox
             // 
+            this.RegisterReEmail_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterReEmail_textbox.Location = new System.Drawing.Point(301, 263);
             this.RegisterReEmail_textbox.Name = "RegisterReEmail_textbox";
             this.RegisterReEmail_textbox.Size = new System.Drawing.Size(206, 22);
@@ -129,6 +139,7 @@
             // 
             // RegisterPassword_textbox
             // 
+            this.RegisterPassword_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterPassword_textbox.Location = new System.Drawing.Point(301, 303);
             this.RegisterPassword_textbox.Name = "RegisterPassword_textbox";
             this.RegisterPassword_textbox.Size = new System.Drawing.Size(206, 22);
@@ -136,6 +147,7 @@
             // 
             // RegisterRePassword_textbox
             // 
+            this.RegisterRePassword_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterRePassword_textbox.Location = new System.Drawing.Point(301, 343);
             this.RegisterRePassword_textbox.Name = "RegisterRePassword_textbox";
             this.RegisterRePassword_textbox.Size = new System.Drawing.Size(206, 22);
@@ -143,6 +155,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(182, 96);
@@ -153,6 +166,7 @@
             // 
             // Create_button
             // 
+            this.Create_button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Create_button.Location = new System.Drawing.Point(430, 382);
             this.Create_button.Name = "Create_button";
             this.Create_button.Size = new System.Drawing.Size(77, 29);
@@ -163,6 +177,7 @@
             // 
             // Cancel_button
             // 
+            this.Cancel_button.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Cancel_button.Location = new System.Drawing.Point(301, 382);
             this.Cancel_button.Name = "Cancel_button";
             this.Cancel_button.Size = new System.Drawing.Size(77, 29);
@@ -192,7 +207,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Register";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.Load += new System.EventHandler(this.Register_Load);

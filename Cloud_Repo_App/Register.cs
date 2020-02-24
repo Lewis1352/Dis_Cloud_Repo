@@ -13,11 +13,13 @@ namespace Cloud_Repo_App
     public partial class Register : Form
     {
         Entry_point controller;
+        SQL_conn sqlConn;
 
-        public Register(Entry_point mainForm)
+        public Register(Entry_point mainForm, SQL_conn sqlControl)
         {
             InitializeComponent();
             controller = mainForm;
+            sqlConn = sqlControl;
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace Cloud_Repo_App
 
         private void Create_button_Click(object sender, EventArgs e)
         {
-            //DisplayLoginForm();
+            sqlConn.IntConnection();
         }
 
         private void Cancel_button_Click(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace Cloud_Repo_App
             Properties.Settings.Default.Save();
         }
 
-        private void LoadWindowSettings()
+        public void LoadWindowSettings()
         {
             if (Properties.Settings.Default.Maximized)
             {
@@ -91,7 +93,7 @@ namespace Cloud_Repo_App
 
         private void Register_Shown(object sender, EventArgs e)
         {
-            LoadWindowSettings();
+            
         }
     }
 }

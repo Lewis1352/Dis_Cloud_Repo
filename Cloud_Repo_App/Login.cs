@@ -14,11 +14,13 @@ namespace Cloud_Repo_App
     {
 
         Entry_point controller;
+        SQL_conn sqlConn;
 
-        public Login(Entry_point mainForm)
+        public Login(Entry_point mainForm, SQL_conn sqlControl)
         {
             InitializeComponent();
             controller = mainForm;
+            sqlConn = sqlControl;
         }
 
         private void Register_button_Click(object sender, EventArgs e)
@@ -39,7 +41,7 @@ namespace Cloud_Repo_App
 
         private void Login_Shown(object sender, EventArgs e)
         {
-            LoadWindowSettings();
+            
         }
 
         private void StoreWindowSettings()
@@ -68,7 +70,7 @@ namespace Cloud_Repo_App
             Properties.Settings.Default.Save();
         }
 
-        private void LoadWindowSettings()
+        public void LoadWindowSettings()
         {
             if (Properties.Settings.Default.Maximized)
             {

@@ -22,6 +22,7 @@ namespace Cloud_Repo_App
 
         Login loginForm;
         Register registerForm;
+        SQL_conn sqlConn;
         private int currentState;
 
         public int CurrentState
@@ -40,20 +41,23 @@ namespace Cloud_Repo_App
         public Entry_point()
         {
             InitializeComponent();
-            loginForm = new Login(this);
-            registerForm = new Register(this);
+            sqlConn = new SQL_conn();
+            loginForm = new Login(this, sqlConn);
+            registerForm = new Register(this, sqlConn);
         }
 
         private void DisplayLoginForm()
         {
             registerForm.Hide();
+            loginForm.LoadWindowSettings();
             loginForm.Show();
         }
 
         private void DisplayRegisterForm()
         {
-            registerForm.Show();
             loginForm.Hide();
+            registerForm.LoadWindowSettings();
+            registerForm.Show();
         }
 
         private void StateChangeHandler(int state)
