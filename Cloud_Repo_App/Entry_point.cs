@@ -70,9 +70,35 @@ namespace Cloud_Repo_App
 
         private void Entry_point_Shown(object sender, EventArgs e)
         {
+            StoreWindowSettings();
             CurrentState = (int)EnumState.Login;
             this.Hide();
-            //loginForm.Show();
+        }
+
+        private void StoreWindowSettings()
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                Properties.Settings.Default.Location = RestoreBounds.Location;
+                Properties.Settings.Default.Size = RestoreBounds.Size;
+                Properties.Settings.Default.Maximized = true;
+                Properties.Settings.Default.Minimized = false;
+            }
+            else if (WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.Location = Location;
+                Properties.Settings.Default.Size = Size;
+                Properties.Settings.Default.Maximized = false;
+                Properties.Settings.Default.Minimized = false;
+            }
+            else
+            {
+                Properties.Settings.Default.Location = RestoreBounds.Location;
+                Properties.Settings.Default.Size = RestoreBounds.Size;
+                Properties.Settings.Default.Maximized = false;
+                Properties.Settings.Default.Minimized = true;
+            }
+            Properties.Settings.Default.Save();
         }
     }
 }
