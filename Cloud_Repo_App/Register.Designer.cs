@@ -43,6 +43,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.Create_button = new System.Windows.Forms.Button();
             this.Cancel_button = new System.Windows.Forms.Button();
+            this.UsernameTaken_label = new System.Windows.Forms.Label();
+            this.EmailInUse_label = new System.Windows.Forms.Label();
+            this.EmailDoesNotMatch_label = new System.Windows.Forms.Label();
+            this.CantConnect_label = new System.Windows.Forms.Label();
+            this.PasswordDoesNotMatch_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -142,6 +147,7 @@
             this.RegisterPassword_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterPassword_textbox.Location = new System.Drawing.Point(301, 303);
             this.RegisterPassword_textbox.Name = "RegisterPassword_textbox";
+            this.RegisterPassword_textbox.PasswordChar = '*';
             this.RegisterPassword_textbox.Size = new System.Drawing.Size(206, 22);
             this.RegisterPassword_textbox.TabIndex = 10;
             // 
@@ -150,6 +156,7 @@
             this.RegisterRePassword_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RegisterRePassword_textbox.Location = new System.Drawing.Point(301, 343);
             this.RegisterRePassword_textbox.Name = "RegisterRePassword_textbox";
+            this.RegisterRePassword_textbox.PasswordChar = '*';
             this.RegisterRePassword_textbox.Size = new System.Drawing.Size(206, 22);
             this.RegisterRePassword_textbox.TabIndex = 11;
             // 
@@ -186,11 +193,66 @@
             this.Cancel_button.UseVisualStyleBackColor = true;
             this.Cancel_button.Click += new System.EventHandler(this.Cancel_button_Click);
             // 
+            // UsernameTaken_label
+            // 
+            this.UsernameTaken_label.AutoSize = true;
+            this.UsernameTaken_label.ForeColor = System.Drawing.Color.Red;
+            this.UsernameTaken_label.Location = new System.Drawing.Point(513, 192);
+            this.UsernameTaken_label.Name = "UsernameTaken_label";
+            this.UsernameTaken_label.Size = new System.Drawing.Size(163, 17);
+            this.UsernameTaken_label.TabIndex = 15;
+            this.UsernameTaken_label.Text = "Username already taken";
+            // 
+            // EmailInUse_label
+            // 
+            this.EmailInUse_label.AutoSize = true;
+            this.EmailInUse_label.ForeColor = System.Drawing.Color.Red;
+            this.EmailInUse_label.Location = new System.Drawing.Point(513, 229);
+            this.EmailInUse_label.Name = "EmailInUse_label";
+            this.EmailInUse_label.Size = new System.Drawing.Size(135, 17);
+            this.EmailInUse_label.TabIndex = 16;
+            this.EmailInUse_label.Text = "Email already in use";
+            // 
+            // EmailDoesNotMatch_label
+            // 
+            this.EmailDoesNotMatch_label.AutoSize = true;
+            this.EmailDoesNotMatch_label.ForeColor = System.Drawing.Color.Red;
+            this.EmailDoesNotMatch_label.Location = new System.Drawing.Point(513, 266);
+            this.EmailDoesNotMatch_label.Name = "EmailDoesNotMatch_label";
+            this.EmailDoesNotMatch_label.Size = new System.Drawing.Size(143, 17);
+            this.EmailDoesNotMatch_label.TabIndex = 17;
+            this.EmailDoesNotMatch_label.Text = "Email does not match";
+            // 
+            // CantConnect_label
+            // 
+            this.CantConnect_label.AutoSize = true;
+            this.CantConnect_label.ForeColor = System.Drawing.Color.Red;
+            this.CantConnect_label.Location = new System.Drawing.Point(173, 429);
+            this.CantConnect_label.Name = "CantConnect_label";
+            this.CantConnect_label.Size = new System.Drawing.Size(455, 17);
+            this.CantConnect_label.TabIndex = 18;
+            this.CantConnect_label.Text = "Application cannot reach server please check internet or try again later";
+            // 
+            // PasswordDoesNotMatch_label
+            // 
+            this.PasswordDoesNotMatch_label.AutoSize = true;
+            this.PasswordDoesNotMatch_label.ForeColor = System.Drawing.Color.Red;
+            this.PasswordDoesNotMatch_label.Location = new System.Drawing.Point(513, 346);
+            this.PasswordDoesNotMatch_label.Name = "PasswordDoesNotMatch_label";
+            this.PasswordDoesNotMatch_label.Size = new System.Drawing.Size(170, 17);
+            this.PasswordDoesNotMatch_label.TabIndex = 19;
+            this.PasswordDoesNotMatch_label.Text = "Password does not match";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.PasswordDoesNotMatch_label);
+            this.Controls.Add(this.CantConnect_label);
+            this.Controls.Add(this.EmailDoesNotMatch_label);
+            this.Controls.Add(this.EmailInUse_label);
+            this.Controls.Add(this.UsernameTaken_label);
             this.Controls.Add(this.Cancel_button);
             this.Controls.Add(this.Create_button);
             this.Controls.Add(this.label7);
@@ -233,5 +295,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button Create_button;
         private System.Windows.Forms.Button Cancel_button;
+        private System.Windows.Forms.Label UsernameTaken_label;
+        private System.Windows.Forms.Label EmailInUse_label;
+        private System.Windows.Forms.Label EmailDoesNotMatch_label;
+        private System.Windows.Forms.Label CantConnect_label;
+        private System.Windows.Forms.Label PasswordDoesNotMatch_label;
     }
 }

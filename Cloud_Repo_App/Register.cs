@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace Cloud_Repo_App
 {
@@ -24,7 +25,16 @@ namespace Cloud_Repo_App
 
         private void Register_Load(object sender, EventArgs e)
         {
+            ResetErrorMessages();
+        }
 
+        public void ResetErrorMessages()
+        {
+            UsernameTaken_label.Hide();
+            EmailInUse_label.Hide();
+            EmailDoesNotMatch_label.Hide();
+            CantConnect_label.Hide();
+            PasswordDoesNotMatch_label.Hide();
         }
 
         private void Register_FormClosing(object sender, FormClosingEventArgs e)
@@ -34,7 +44,55 @@ namespace Cloud_Repo_App
 
         private void Create_button_Click(object sender, EventArgs e)
         {
-            sqlConn.IntConnection();
+            //TODO: more error checking and implement encryption properly
+
+            ResetErrorMessages();
+            bool inputsValid = true;
+
+            if (!(sqlConn.CheckConnection()))
+            {
+                inputsValid = false;
+                CantConnect_label.Show();
+            }
+            if (sqlConn.CheckIfUserExists(RegisterUsername_textbox.Text))
+            {
+                inputsValid = false;
+                UsernameTaken_label.Show();
+            }
+            if (sqlConn.CheckIfEmailExists(RegisterEmail_textbox.Text))
+            {
+                inputsValid = false;
+                EmailInUse_label.Show();
+            }
+            if (!(String.Equals(RegisterEmail_textbox.Text, RegisterReEmail_textbox.Text)))
+            {
+                inputsValid = false;
+                EmailDoesNotMatch_label.Show();
+            }
+            if (!(String.Equals(RegisterPassword_textbox.Text, RegisterRePassword_textbox.Text)))
+            {
+                inputsValid = false;
+                PasswordDoesNotMatch_label.Show();
+            }
+            if (inputsValid)
+            {
+                
+                sqlConn.AddUser(RegisterUsername_textbox.Text, RegisterName_textbox.Text, RegisterEmail_textbox.Text, CreateHashedPassword(RegisterPassword_textbox.Text, (RegisterName_textbox.Text + RegisterEmail_textbox.TextLength + "*auK7LUbAB0HGQSV")));
+                controller.CurrentState = (int)EnumState.Login;
+            }            
+            
+        }
+
+        private string CreateHashedPassword(string password, string salt)
+        {
+            byte[] newSalt = Encoding.ASCII.GetBytes(salt);
+            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, newSalt, 1000);
+            byte[] hash = pbkdf2.GetBytes(20);
+            byte[] hashBytes = new byte[36];
+            Array.Copy(newSalt, 0, hashBytes, 0 ,16);
+            Array.Copy(hash, 0, hashBytes, 16, 20);
+            string savedPasswordHash = Convert.ToBase64String(hashBytes);
+            return savedPasswordHash;
         }
 
         private void Cancel_button_Click(object sender, EventArgs e)
