@@ -39,11 +39,6 @@ namespace Cloud_Repo_App
             Application.Exit();
         }
 
-        private void Login_Shown(object sender, EventArgs e)
-        {
-            
-        }
-
         private void StoreWindowSettings()
         {
             if (WindowState == FormWindowState.Maximized)
@@ -89,6 +84,11 @@ namespace Cloud_Repo_App
                 Location = Properties.Settings.Default.Location;
                 Size = Properties.Settings.Default.Size;
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            LoadWindowSettings();
         }
 
     }

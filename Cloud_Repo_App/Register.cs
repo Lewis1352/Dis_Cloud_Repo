@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace Cloud_Repo_App
 {
@@ -26,15 +27,30 @@ namespace Cloud_Repo_App
         private void Register_Load(object sender, EventArgs e)
         {
             ResetErrorMessages();
+            LoadWindowSettings();
         }
 
-        public void ResetErrorMessages()
+        private void ResetErrorMessages()
         {
             UsernameTaken_label.Hide();
             EmailInUse_label.Hide();
             EmailDoesNotMatch_label.Hide();
             CantConnect_label.Hide();
             PasswordDoesNotMatch_label.Hide();
+            InvalidUsername_label.Hide();
+            InvalidEmail_label.Hide();
+            InvalidPassword_label.Hide();
+            InvalidName_label.Hide();
+        }
+
+        private void ClearTextInputs()
+        {
+            RegisterName_textbox.Text = "";
+            RegisterUsername_textbox.Text = "";
+            RegisterEmail_textbox.Text = "";
+            RegisterReEmail_textbox.Text = "";
+            RegisterPassword_textbox.Text = "";
+            RegisterRePassword_textbox.Text = "";
         }
 
         private void Register_FormClosing(object sender, FormClosingEventArgs e)
@@ -44,8 +60,7 @@ namespace Cloud_Repo_App
 
         private void Create_button_Click(object sender, EventArgs e)
         {
-            //TODO: more error checking and implement encryption properly
-
+            Create_button.Enabled = false;
             ResetErrorMessages();
             bool inputsValid = true;
 
@@ -54,12 +69,27 @@ namespace Cloud_Repo_App
                 inputsValid = false;
                 CantConnect_label.Show();
             }
-            if (sqlConn.CheckIfUserExists(RegisterUsername_textbox.Text))
+            if (String.IsNullOrEmpty(RegisterName_textbox.Text))
+            {
+                inputsValid = false;
+                InvalidName_label.Show();
+            }
+            if (String.IsNullOrEmpty(RegisterUsername_textbox.Text))
+            {
+                inputsValid = false;
+                InvalidUsername_label.Show();
+            }
+            else if (sqlConn.CheckIfUserExists(RegisterUsername_textbox.Text))
             {
                 inputsValid = false;
                 UsernameTaken_label.Show();
             }
-            if (sqlConn.CheckIfEmailExists(RegisterEmail_textbox.Text))
+            if (String.IsNullOrEmpty(RegisterEmail_textbox.Text) || !(RegisterEmail_textbox.Text.Contains(@"@")) || !(RegisterEmail_textbox.Text.Contains(@".")))
+            {
+                inputsValid = false;
+                InvalidEmail_label.Show();
+            }
+            else if (sqlConn.CheckIfEmailExists(RegisterEmail_textbox.Text))
             {
                 inputsValid = false;
                 EmailInUse_label.Show();
@@ -68,6 +98,11 @@ namespace Cloud_Repo_App
             {
                 inputsValid = false;
                 EmailDoesNotMatch_label.Show();
+            }
+            if (String.IsNullOrEmpty(RegisterPassword_textbox.Text))
+            {
+                inputsValid = false;
+                InvalidPassword_label.Show();
             }
             if (!(String.Equals(RegisterPassword_textbox.Text, RegisterRePassword_textbox.Text)))
             {
@@ -78,9 +113,12 @@ namespace Cloud_Repo_App
             {
                 
                 sqlConn.AddUser(RegisterUsername_textbox.Text, RegisterName_textbox.Text, RegisterEmail_textbox.Text, CreateHashedPassword(RegisterPassword_textbox.Text, (RegisterName_textbox.Text + RegisterEmail_textbox.TextLength + "*auK7LUbAB0HGQSV")));
+                ResetErrorMessages();
+                ClearTextInputs();
+                StoreWindowSettings();
                 controller.CurrentState = (int)EnumState.Login;
-            }            
-            
+            }
+            Create_button.Enabled = true;
         }
 
         private string CreateHashedPassword(string password, string salt)
@@ -98,6 +136,8 @@ namespace Cloud_Repo_App
         private void Cancel_button_Click(object sender, EventArgs e)
         {
             StoreWindowSettings();
+            ResetErrorMessages();
+            ClearTextInputs();
             controller.CurrentState = (int)EnumState.Login;
         }
 
@@ -149,9 +189,5 @@ namespace Cloud_Repo_App
             }
         }
 
-        private void Register_Shown(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

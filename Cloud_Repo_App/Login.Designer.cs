@@ -118,10 +118,11 @@
             this.Controls.Add(this.Username_textbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Login";
             this.Text = "Cloud Repo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
-            this.Shown += new System.EventHandler(this.Login_Shown);
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

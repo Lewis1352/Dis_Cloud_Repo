@@ -48,6 +48,10 @@
             this.EmailDoesNotMatch_label = new System.Windows.Forms.Label();
             this.CantConnect_label = new System.Windows.Forms.Label();
             this.PasswordDoesNotMatch_label = new System.Windows.Forms.Label();
+            this.InvalidUsername_label = new System.Windows.Forms.Label();
+            this.InvalidEmail_label = new System.Windows.Forms.Label();
+            this.InvalidPassword_label = new System.Windows.Forms.Label();
+            this.InvalidName_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -195,6 +199,7 @@
             // 
             // UsernameTaken_label
             // 
+            this.UsernameTaken_label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.UsernameTaken_label.AutoSize = true;
             this.UsernameTaken_label.ForeColor = System.Drawing.Color.Red;
             this.UsernameTaken_label.Location = new System.Drawing.Point(513, 192);
@@ -205,6 +210,7 @@
             // 
             // EmailInUse_label
             // 
+            this.EmailInUse_label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.EmailInUse_label.AutoSize = true;
             this.EmailInUse_label.ForeColor = System.Drawing.Color.Red;
             this.EmailInUse_label.Location = new System.Drawing.Point(513, 229);
@@ -215,6 +221,7 @@
             // 
             // EmailDoesNotMatch_label
             // 
+            this.EmailDoesNotMatch_label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.EmailDoesNotMatch_label.AutoSize = true;
             this.EmailDoesNotMatch_label.ForeColor = System.Drawing.Color.Red;
             this.EmailDoesNotMatch_label.Location = new System.Drawing.Point(513, 266);
@@ -225,6 +232,7 @@
             // 
             // CantConnect_label
             // 
+            this.CantConnect_label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CantConnect_label.AutoSize = true;
             this.CantConnect_label.ForeColor = System.Drawing.Color.Red;
             this.CantConnect_label.Location = new System.Drawing.Point(173, 429);
@@ -235,6 +243,7 @@
             // 
             // PasswordDoesNotMatch_label
             // 
+            this.PasswordDoesNotMatch_label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PasswordDoesNotMatch_label.AutoSize = true;
             this.PasswordDoesNotMatch_label.ForeColor = System.Drawing.Color.Red;
             this.PasswordDoesNotMatch_label.Location = new System.Drawing.Point(513, 346);
@@ -243,11 +252,59 @@
             this.PasswordDoesNotMatch_label.TabIndex = 19;
             this.PasswordDoesNotMatch_label.Text = "Password does not match";
             // 
+            // InvalidUsername_label
+            // 
+            this.InvalidUsername_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InvalidUsername_label.AutoSize = true;
+            this.InvalidUsername_label.ForeColor = System.Drawing.Color.Red;
+            this.InvalidUsername_label.Location = new System.Drawing.Point(513, 192);
+            this.InvalidUsername_label.Name = "InvalidUsername_label";
+            this.InvalidUsername_label.Size = new System.Drawing.Size(115, 17);
+            this.InvalidUsername_label.TabIndex = 20;
+            this.InvalidUsername_label.Text = "Invalid username";
+            // 
+            // InvalidEmail_label
+            // 
+            this.InvalidEmail_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InvalidEmail_label.AutoSize = true;
+            this.InvalidEmail_label.ForeColor = System.Drawing.Color.Red;
+            this.InvalidEmail_label.Location = new System.Drawing.Point(513, 229);
+            this.InvalidEmail_label.Name = "InvalidEmail_label";
+            this.InvalidEmail_label.Size = new System.Drawing.Size(140, 17);
+            this.InvalidEmail_label.TabIndex = 21;
+            this.InvalidEmail_label.Text = "Invalid email address";
+            // 
+            // InvalidPassword_label
+            // 
+            this.InvalidPassword_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InvalidPassword_label.AutoSize = true;
+            this.InvalidPassword_label.ForeColor = System.Drawing.Color.Red;
+            this.InvalidPassword_label.Location = new System.Drawing.Point(513, 306);
+            this.InvalidPassword_label.Name = "InvalidPassword_label";
+            this.InvalidPassword_label.Size = new System.Drawing.Size(112, 17);
+            this.InvalidPassword_label.TabIndex = 22;
+            this.InvalidPassword_label.Text = "Invalid password";
+            // 
+            // InvalidName_label
+            // 
+            this.InvalidName_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InvalidName_label.AutoSize = true;
+            this.InvalidName_label.ForeColor = System.Drawing.Color.Red;
+            this.InvalidName_label.Location = new System.Drawing.Point(513, 156);
+            this.InvalidName_label.Name = "InvalidName_label";
+            this.InvalidName_label.Size = new System.Drawing.Size(87, 17);
+            this.InvalidName_label.TabIndex = 23;
+            this.InvalidName_label.Text = "Invalid name";
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.InvalidName_label);
+            this.Controls.Add(this.InvalidPassword_label);
+            this.Controls.Add(this.InvalidEmail_label);
+            this.Controls.Add(this.InvalidUsername_label);
             this.Controls.Add(this.PasswordDoesNotMatch_label);
             this.Controls.Add(this.CantConnect_label);
             this.Controls.Add(this.EmailDoesNotMatch_label);
@@ -268,11 +325,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Register";
             this.Text = "Register";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.Load += new System.EventHandler(this.Register_Load);
-            this.Shown += new System.EventHandler(this.Register_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +357,9 @@
         private System.Windows.Forms.Label EmailDoesNotMatch_label;
         private System.Windows.Forms.Label CantConnect_label;
         private System.Windows.Forms.Label PasswordDoesNotMatch_label;
+        private System.Windows.Forms.Label InvalidUsername_label;
+        private System.Windows.Forms.Label InvalidEmail_label;
+        private System.Windows.Forms.Label InvalidPassword_label;
+        private System.Windows.Forms.Label InvalidName_label;
     }
 }
