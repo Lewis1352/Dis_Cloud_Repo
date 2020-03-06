@@ -31,7 +31,58 @@ namespace Cloud_Repo_App
 
         private void Login_button_Click(object sender, EventArgs e)
         {
+            Login_button.Enabled = false;
+            ResetErrorMessages();
+            bool inputsValid = true;
 
+            if (!(sqlConn.CheckConnection()))
+            {
+                inputsValid = false;
+                CantConnect_label.Show();
+            }
+            if (String.IsNullOrEmpty(Username_textbox.Text))
+            {
+                inputsValid = false;
+                InvalidLogin_label.Show();
+            }
+            else if (!(sqlConn.CheckIfUserExists(Username_textbox.Text)))
+            {
+                inputsValid = false;
+                InvalidLogin_label.Show();
+            }
+            if (String.IsNullOrEmpty(Password_textbox.Text))
+            {
+                inputsValid = false;
+                InvalidLogin_label.Show();
+            }
+            else if (!(sqlConn.ValidatePassword(sqlConn.CreateHashedPassword(Password_textbox.Text, Username_textbox.Text))))
+            {
+                inputsValid = false;
+                InvalidLogin_label.Show();
+            }
+            if (inputsValid)
+            {
+
+                //sqlConn.AddUser(RegisterUsername_textbox.Text, RegisterName_textbox.Text, RegisterEmail_textbox.Text, sqlConn.CreateHashedPassword(RegisterPassword_textbox.Text, (RegisterName_textbox + "*auK7LUbAB0HGQSV")));
+                ResetErrorMessages();
+                StoreWindowSettings();
+                //controller.CurrentState = (int)EnumState.Login;
+            }
+
+            ClearTextInputs();
+            Login_button.Enabled = true;
+        }
+
+        private void ClearTextInputs()
+        {
+            Username_textbox.Clear();
+            Password_textbox.Clear();
+        }
+
+        private void ResetErrorMessages()
+        {
+            InvalidLogin_label.Hide();
+            CantConnect_label.Hide();
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
@@ -89,6 +140,7 @@ namespace Cloud_Repo_App
         private void Login_Load(object sender, EventArgs e)
         {
             LoadWindowSettings();
+            ResetErrorMessages();
         }
 
     }

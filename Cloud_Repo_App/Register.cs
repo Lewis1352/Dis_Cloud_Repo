@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography;
-using System.Text.RegularExpressions;
 
 namespace Cloud_Repo_App
 {
@@ -45,12 +43,12 @@ namespace Cloud_Repo_App
 
         private void ClearTextInputs()
         {
-            RegisterName_textbox.Text = "";
-            RegisterUsername_textbox.Text = "";
-            RegisterEmail_textbox.Text = "";
-            RegisterReEmail_textbox.Text = "";
-            RegisterPassword_textbox.Text = "";
-            RegisterRePassword_textbox.Text = "";
+            RegisterName_textbox.Clear();
+            RegisterUsername_textbox.Clear();
+            RegisterEmail_textbox.Clear();
+            RegisterReEmail_textbox.Clear();
+            RegisterPassword_textbox.Clear();
+            RegisterRePassword_textbox.Clear();
         }
 
         private void Register_FormClosing(object sender, FormClosingEventArgs e)
@@ -112,25 +110,13 @@ namespace Cloud_Repo_App
             if (inputsValid)
             {
                 
-                sqlConn.AddUser(RegisterUsername_textbox.Text, RegisterName_textbox.Text, RegisterEmail_textbox.Text, CreateHashedPassword(RegisterPassword_textbox.Text, (RegisterName_textbox.Text + RegisterEmail_textbox.TextLength + "*auK7LUbAB0HGQSV")));
+                sqlConn.AddUser(RegisterUsername_textbox.Text, RegisterName_textbox.Text, RegisterEmail_textbox.Text, sqlConn.CreateHashedPassword(RegisterPassword_textbox.Text, RegisterUsername_textbox.Text));
                 ResetErrorMessages();
                 ClearTextInputs();
                 StoreWindowSettings();
                 controller.CurrentState = (int)EnumState.Login;
             }
             Create_button.Enabled = true;
-        }
-
-        private string CreateHashedPassword(string password, string salt)
-        {
-            byte[] newSalt = Encoding.ASCII.GetBytes(salt);
-            Rfc2898DeriveBytes pbkdf2 = new Rfc2898DeriveBytes(password, newSalt, 1000);
-            byte[] hash = pbkdf2.GetBytes(20);
-            byte[] hashBytes = new byte[36];
-            Array.Copy(newSalt, 0, hashBytes, 0 ,16);
-            Array.Copy(hash, 0, hashBytes, 16, 20);
-            string savedPasswordHash = Convert.ToBase64String(hashBytes);
-            return savedPasswordHash;
         }
 
         private void Cancel_button_Click(object sender, EventArgs e)
@@ -142,7 +128,7 @@ namespace Cloud_Repo_App
         }
 
 
-        private void StoreWindowSettings()
+        public void StoreWindowSettings()
         {
             if (WindowState == FormWindowState.Maximized)
             {

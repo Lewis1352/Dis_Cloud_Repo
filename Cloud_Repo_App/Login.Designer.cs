@@ -35,6 +35,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Login_button = new System.Windows.Forms.Button();
             this.Register_button = new System.Windows.Forms.Button();
+            this.InvalidLogin_label = new System.Windows.Forms.Label();
+            this.CantConnect_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -70,6 +72,7 @@
             this.Password_textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Password_textbox.Location = new System.Drawing.Point(307, 197);
             this.Password_textbox.Name = "Password_textbox";
+            this.Password_textbox.PasswordChar = '*';
             this.Password_textbox.Size = new System.Drawing.Size(206, 22);
             this.Password_textbox.TabIndex = 3;
             // 
@@ -106,11 +109,35 @@
             this.Register_button.UseVisualStyleBackColor = true;
             this.Register_button.Click += new System.EventHandler(this.Register_button_Click);
             // 
+            // InvalidLogin_label
+            // 
+            this.InvalidLogin_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.InvalidLogin_label.AutoSize = true;
+            this.InvalidLogin_label.ForeColor = System.Drawing.Color.Red;
+            this.InvalidLogin_label.Location = new System.Drawing.Point(519, 200);
+            this.InvalidLogin_label.Name = "InvalidLogin_label";
+            this.InvalidLogin_label.Size = new System.Drawing.Size(127, 17);
+            this.InvalidLogin_label.TabIndex = 24;
+            this.InvalidLogin_label.Text = "Invalid login details";
+            // 
+            // CantConnect_label
+            // 
+            this.CantConnect_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CantConnect_label.AutoSize = true;
+            this.CantConnect_label.ForeColor = System.Drawing.Color.Red;
+            this.CantConnect_label.Location = new System.Drawing.Point(171, 290);
+            this.CantConnect_label.Name = "CantConnect_label";
+            this.CantConnect_label.Size = new System.Drawing.Size(455, 17);
+            this.CantConnect_label.TabIndex = 25;
+            this.CantConnect_label.Text = "Application cannot reach server please check internet or try again later";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.CantConnect_label);
+            this.Controls.Add(this.InvalidLogin_label);
             this.Controls.Add(this.Register_button);
             this.Controls.Add(this.Login_button);
             this.Controls.Add(this.label3);
@@ -137,6 +164,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Login_button;
         private System.Windows.Forms.Button Register_button;
+        private System.Windows.Forms.Label InvalidLogin_label;
+        private System.Windows.Forms.Label CantConnect_label;
     }
 }
 
