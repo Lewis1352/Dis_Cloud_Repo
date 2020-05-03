@@ -14,7 +14,8 @@ namespace Cloud_Repo_App
     {
         DefaultState,
         Register,
-        Login
+        Login,
+        LoggedIn
     }
 
     public partial class Entry_point : Form

@@ -66,7 +66,7 @@ namespace Cloud_Repo_App
                 //sqlConn.AddUser(RegisterUsername_textbox.Text, RegisterName_textbox.Text, RegisterEmail_textbox.Text, sqlConn.CreateHashedPassword(RegisterPassword_textbox.Text, (RegisterName_textbox + "*auK7LUbAB0HGQSV")));
                 ResetErrorMessages();
                 StoreWindowSettings();
-                //controller.CurrentState = (int)EnumState.Login;
+                controller.CurrentState = (int)EnumState.LoggedIn;
             }
 
             ClearTextInputs();
