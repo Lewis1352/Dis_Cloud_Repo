@@ -125,3 +125,4 @@ E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\bin\Debug\System.Numerics.Vectors
 E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.exe.config
 E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.csproj.CopyComplete
+E:\Git Workspace\Dis_Cloud_Repo\Cloud_Repo_App\obj\Debug\Cloud_Repo_App.File_transfer.resources

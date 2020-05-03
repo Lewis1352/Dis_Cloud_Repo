@@ -24,6 +24,8 @@ namespace Cloud_Repo_App
         Login loginForm;
         Register registerForm;
         SQL_conn sqlConn;
+        File_transfer fileForm;
+
         private int currentState;
 
         public int CurrentState
@@ -45,11 +47,13 @@ namespace Cloud_Repo_App
             sqlConn = new SQL_conn();
             loginForm = new Login(this, sqlConn);
             registerForm = new Register(this, sqlConn);
+            fileForm = new File_transfer(this, sqlConn);
         }
 
         private void DisplayLoginForm()
         {
             registerForm.Hide();
+            fileForm.Hide();
             loginForm.LoadWindowSettings();
             loginForm.Show();
         }
@@ -57,8 +61,17 @@ namespace Cloud_Repo_App
         private void DisplayRegisterForm()
         {
             loginForm.Hide();
+            fileForm.Hide();
             registerForm.LoadWindowSettings();
             registerForm.Show();
+        }
+
+        private void DisplayFileForm()
+        {
+            loginForm.Hide();
+            registerForm.Hide();
+            fileForm.LoadWindowSettings();
+            fileForm.Show();
         }
 
         private void StateChangeHandler(int state)
@@ -70,6 +83,10 @@ namespace Cloud_Repo_App
             if (state == (int)EnumState.Register)
             {
                 DisplayRegisterForm();
+            }
+            if (state == (int)EnumState.LoggedIn)
+            {
+                DisplayFileForm();
             }
         }
 

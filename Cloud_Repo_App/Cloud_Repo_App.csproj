@@ -87,6 +87,12 @@
     <Compile Include="Entry_point.Designer.cs">
       <DependentUpon>Entry_point.cs</DependentUpon>
     </Compile>
+    <Compile Include="File_transfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="File_transfer.Designer.cs">
+      <DependentUpon>File_transfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="SQL_conn.cs" />
     <EmbeddedResource Include="Entry_point.resx">
       <DependentUpon>Entry_point.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="File_transfer.resx">
+      <DependentUpon>File_transfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
