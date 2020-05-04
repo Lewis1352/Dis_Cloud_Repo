@@ -140,6 +140,27 @@ namespace Cloud_Repo_App
             return doesExist;
         }
 
+        public void UploadFile(string filePath, string fileName)
+        {
+            using (SftpClient sftp = new SftpClient(@"127.0.0.1", @"lewis135", @"vmPass"))
+            {
+                try
+                {
+                    sftp.Connect();
+
+                    using (var fileStream = System.IO.File.OpenRead(filePath))
+                    {
+                        sftp.UploadFile(fileStream, fileName);
+                    }
+                    sftp.Disconnect();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e);
+                }
+            }
+        }
+
         public void AddUser(string username, string name, string email, string password)
         {
             var (sshClient, localPort) = ConnectSsh(sshServer, sshUser, sshPassword, databaseServer: databaseServer);
@@ -162,6 +183,10 @@ namespace Cloud_Repo_App
                     cmd.ExecuteNonQuery();
                     mysqlClient.Close();
                 }
+                
+                sshClient.RunCommand("mkdir Repo_Storage/" + username.ToString());
+
+
                 sshClient.Disconnect();
             }
         }
