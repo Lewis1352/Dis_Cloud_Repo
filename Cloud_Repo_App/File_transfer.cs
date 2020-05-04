@@ -15,7 +15,7 @@ namespace Cloud_Repo_App
 
         Entry_point controller;
         SQL_conn sqlConn;
-        OpenFileDialog openFileDialog;
+        OpenFileDialog openFileDialog = new OpenFileDialog();
 
         public File_transfer(Entry_point mainForm, SQL_conn sqlControl)
         {
@@ -86,7 +86,12 @@ namespace Cloud_Repo_App
 
         private void Upload_button_Click(object sender, EventArgs e)
         {
-            DialogResult result = openFileDialog.ShowDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                string fileName = openFileDialog.SafeFileName;
+                sqlConn.UploadFile(filePath, fileName);
+            }
         }
     }
 }
