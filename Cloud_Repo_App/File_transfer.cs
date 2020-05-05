@@ -16,6 +16,7 @@ namespace Cloud_Repo_App
         Entry_point controller;
         SQL_conn sqlConn;
         OpenFileDialog openFileDialog = new OpenFileDialog();
+        FolderBrowserDialog openBrowserDialog = new FolderBrowserDialog();
 
         public File_transfer(Entry_point mainForm, SQL_conn sqlControl)
         {
@@ -105,6 +106,29 @@ namespace Cloud_Repo_App
                 {
                     file_listBox.Items.Add(name);
                 }
+            }
+        }
+
+        private void Reset_list()
+        {
+            file_listBox.Items.Clear();
+        }
+
+        private void LogOut_button_Click(object sender, EventArgs e)
+        {
+            Reset_list();
+            controller.CurrentState = (int)EnumState.Login;
+        }
+
+        private void Download_button_Click(object sender, EventArgs e)
+        {
+            if (openBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+
+
+                string downloadLocation = openBrowserDialog.SelectedPath;
+                //string file = file_listBox.SelectedItem.ToString();
+                sqlConn.DownloadFile(downloadLocation, file_listBox.SelectedItem.ToString(), controller.CurrentUser);
             }
         }
     }

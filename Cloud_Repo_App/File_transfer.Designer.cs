@@ -30,11 +30,13 @@
         {
             this.Upload_button = new System.Windows.Forms.Button();
             this.file_listBox = new System.Windows.Forms.ListBox();
+            this.LogOut_button = new System.Windows.Forms.Button();
+            this.Download_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Upload_button
             // 
-            this.Upload_button.Location = new System.Drawing.Point(157, 326);
+            this.Upload_button.Location = new System.Drawing.Point(34, 250);
             this.Upload_button.Name = "Upload_button";
             this.Upload_button.Size = new System.Drawing.Size(77, 29);
             this.Upload_button.TabIndex = 0;
@@ -52,11 +54,33 @@
             this.file_listBox.Size = new System.Drawing.Size(758, 212);
             this.file_listBox.TabIndex = 1;
             // 
+            // LogOut_button
+            // 
+            this.LogOut_button.Location = new System.Drawing.Point(34, 467);
+            this.LogOut_button.Name = "LogOut_button";
+            this.LogOut_button.Size = new System.Drawing.Size(77, 29);
+            this.LogOut_button.TabIndex = 2;
+            this.LogOut_button.Text = "Log Out";
+            this.LogOut_button.UseVisualStyleBackColor = true;
+            this.LogOut_button.Click += new System.EventHandler(this.LogOut_button_Click);
+            // 
+            // Download_button
+            // 
+            this.Download_button.Location = new System.Drawing.Point(654, 250);
+            this.Download_button.Name = "Download_button";
+            this.Download_button.Size = new System.Drawing.Size(87, 29);
+            this.Download_button.TabIndex = 3;
+            this.Download_button.Text = "Download";
+            this.Download_button.UseVisualStyleBackColor = true;
+            this.Download_button.Click += new System.EventHandler(this.Download_button_Click);
+            // 
             // File_transfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.Download_button);
+            this.Controls.Add(this.LogOut_button);
             this.Controls.Add(this.file_listBox);
             this.Controls.Add(this.Upload_button);
             this.Name = "File_transfer";
@@ -71,5 +95,7 @@
 
         private System.Windows.Forms.Button Upload_button;
         private System.Windows.Forms.ListBox file_listBox;
+        private System.Windows.Forms.Button LogOut_button;
+        private System.Windows.Forms.Button Download_button;
     }
 }
