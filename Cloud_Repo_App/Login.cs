@@ -61,11 +61,10 @@ namespace Cloud_Repo_App
                 InvalidLogin_label.Show();
             }
             if (inputsValid)
-            {
-
-                //sqlConn.AddUser(RegisterUsername_textbox.Text, RegisterName_textbox.Text, RegisterEmail_textbox.Text, sqlConn.CreateHashedPassword(RegisterPassword_textbox.Text, (RegisterName_textbox + "*auK7LUbAB0HGQSV")));
+            {            
                 ResetErrorMessages();
                 StoreWindowSettings();
+                controller.CurrentUser = Username_textbox.Text;
                 controller.CurrentState = (int)EnumState.LoggedIn;
             }
 

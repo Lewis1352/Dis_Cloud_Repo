@@ -140,7 +140,7 @@ namespace Cloud_Repo_App
             return doesExist;
         }
 
-        public void UploadFile(string filePath, string fileName)
+        public void UploadFile(string filePath, string fileName, string userName)
         {
             using (SftpClient sftp = new SftpClient(@"127.0.0.1", @"lewis135", @"vmPass"))
             {
@@ -150,6 +150,7 @@ namespace Cloud_Repo_App
 
                     using (var fileStream = System.IO.File.OpenRead(filePath))
                     {
+                        sftp.ChangeDirectory("Repo_Storage/" + userName);
                         sftp.UploadFile(fileStream, fileName);
                     }
                     sftp.Disconnect();
@@ -159,6 +160,35 @@ namespace Cloud_Repo_App
                     Console.WriteLine("Error: " + e);
                 }
             }
+        }
+
+        public List<String> getFileList(string userName)
+        {
+            List<String> files = new List<string>();
+            using (SftpClient sftp = new SftpClient(@"127.0.0.1", @"lewis135", @"vmPass"))
+            {
+                try
+                {
+                    sftp.Connect();
+                    sftp.ChangeDirectory("Repo_Storage/" + userName);
+                    foreach(var entry in sftp.ListDirectory("."))
+                    {                    
+                        if (!entry.IsDirectory)
+                        {
+                            files.Add(entry.Name);
+                        }
+                    }
+
+                    sftp.Disconnect();
+
+                 
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e);
+                }
+                return files;
+            }          
         }
 
         public void AddUser(string username, string name, string email, string password)

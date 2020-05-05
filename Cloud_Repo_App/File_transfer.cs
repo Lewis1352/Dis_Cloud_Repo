@@ -82,6 +82,7 @@ namespace Cloud_Repo_App
         private void File_transfer_Load(object sender, EventArgs e)
         {
             LoadWindowSettings();
+            Show_current_files();
         }
 
         private void Upload_button_Click(object sender, EventArgs e)
@@ -90,7 +91,20 @@ namespace Cloud_Repo_App
             {
                 string filePath = openFileDialog.FileName;
                 string fileName = openFileDialog.SafeFileName;
-                sqlConn.UploadFile(filePath, fileName);
+                sqlConn.UploadFile(filePath, fileName, controller.CurrentUser);
+                Show_current_files();
+            }
+        }
+
+        private void Show_current_files()
+        {
+            List<string> files = sqlConn.getFileList(controller.CurrentUser);
+            foreach(var name in files)
+            {
+                if (!file_listBox.Items.Contains(name))
+                {
+                    file_listBox.Items.Add(name);
+                }
             }
         }
     }

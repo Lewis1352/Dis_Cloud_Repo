@@ -41,6 +41,20 @@ namespace Cloud_Repo_App
             }
         }
 
+        private string currentUser;
+
+        public string CurrentUser
+        {
+            get
+            {
+                return currentUser;
+            }
+            set
+            {
+                currentUser = value;
+            }
+        }
+
         public Entry_point()
         {
             InitializeComponent();
