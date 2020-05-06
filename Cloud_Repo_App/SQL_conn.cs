@@ -184,6 +184,25 @@ namespace Cloud_Repo_App
             }
         }
 
+        public void RemoveFile(string file, string userName)
+        {
+            using (SftpClient sftp = new SftpClient(@"127.0.0.1", @"lewis135", @"vmPass"))
+            {
+                try
+                {
+                    sftp.Connect();
+
+                    sftp.ChangeDirectory("Repo_Storage/" + userName);
+                    sftp.DeleteFile(file);
+                    sftp.Disconnect();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error: " + e);
+                }
+            }
+        }
+
         public List<String> getFileList(string userName)
         {
             List<String> files = new List<string>();

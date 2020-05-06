@@ -17,6 +17,7 @@ namespace Cloud_Repo_App
         SQL_conn sqlConn;
         OpenFileDialog openFileDialog = new OpenFileDialog();
         FolderBrowserDialog openBrowserDialog = new FolderBrowserDialog();
+        DialogResult deleteBoxResult = new DialogResult();
 
         public File_transfer(Entry_point mainForm, SQL_conn sqlControl)
         {
@@ -100,7 +101,8 @@ namespace Cloud_Repo_App
         private void Show_current_files()
         {
             List<string> files = sqlConn.getFileList(controller.CurrentUser);
-            foreach(var name in files)
+            file_listBox.Items.Clear();
+            foreach (var name in files)
             {
                 if (!file_listBox.Items.Contains(name))
                 {
@@ -127,8 +129,24 @@ namespace Cloud_Repo_App
 
 
                 string downloadLocation = openBrowserDialog.SelectedPath;
-                //string file = file_listBox.SelectedItem.ToString();
                 sqlConn.DownloadFile(downloadLocation, file_listBox.SelectedItem.ToString(), controller.CurrentUser);
+            }
+        }
+
+        private void Delete_button_Click(object sender, EventArgs e)
+        {
+            if (file_listBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select file to delete", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                deleteBoxResult = MessageBox.Show("Are you sure you want to delete?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (deleteBoxResult == DialogResult.Yes)
+                {
+                    sqlConn.RemoveFile(file_listBox.SelectedItem.ToString(), controller.CurrentUser);
+                    Show_current_files();
+                }
             }
         }
     }

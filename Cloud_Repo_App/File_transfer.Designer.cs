@@ -32,6 +32,7 @@
             this.file_listBox = new System.Windows.Forms.ListBox();
             this.LogOut_button = new System.Windows.Forms.Button();
             this.Download_button = new System.Windows.Forms.Button();
+            this.Delete_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Upload_button
@@ -74,11 +75,22 @@
             this.Download_button.UseVisualStyleBackColor = true;
             this.Download_button.Click += new System.EventHandler(this.Download_button_Click);
             // 
+            // Delete_button
+            // 
+            this.Delete_button.Location = new System.Drawing.Point(523, 250);
+            this.Delete_button.Name = "Delete_button";
+            this.Delete_button.Size = new System.Drawing.Size(87, 29);
+            this.Delete_button.TabIndex = 4;
+            this.Delete_button.Text = "Delete";
+            this.Delete_button.UseVisualStyleBackColor = true;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
+            // 
             // File_transfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Download_button);
             this.Controls.Add(this.LogOut_button);
             this.Controls.Add(this.file_listBox);
@@ -97,5 +109,6 @@
         private System.Windows.Forms.ListBox file_listBox;
         private System.Windows.Forms.Button LogOut_button;
         private System.Windows.Forms.Button Download_button;
+        private System.Windows.Forms.Button Delete_button;
     }
 }
