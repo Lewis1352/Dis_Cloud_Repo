@@ -14,9 +14,9 @@ namespace Cloud_Repo_App
     {
 
         Entry_point controller;
-        SQL_conn sqlConn;
+        Server_conn sqlConn;
 
-        public Login(Entry_point mainForm, SQL_conn sqlControl)
+        public Login(Entry_point mainForm, Server_conn sqlControl)
         {
             InitializeComponent();
             controller = mainForm;

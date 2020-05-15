@@ -14,12 +14,12 @@ namespace Cloud_Repo_App
     {
 
         Entry_point controller;
-        SQL_conn sqlConn;
+        Server_conn sqlConn;
         OpenFileDialog openFileDialog = new OpenFileDialog();
         FolderBrowserDialog openBrowserDialog = new FolderBrowserDialog();
         DialogResult deleteBoxResult = new DialogResult();
 
-        public File_transfer(Entry_point mainForm, SQL_conn sqlControl)
+        public File_transfer(Entry_point mainForm, Server_conn sqlControl)
         {
             InitializeComponent();
             controller = mainForm;

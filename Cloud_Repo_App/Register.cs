@@ -13,9 +13,9 @@ namespace Cloud_Repo_App
     public partial class Register : Form
     {
         Entry_point controller;
-        SQL_conn sqlConn;
+        Server_conn sqlConn;
 
-        public Register(Entry_point mainForm, SQL_conn sqlControl)
+        public Register(Entry_point mainForm, Server_conn sqlControl)
         {
             InitializeComponent();
             controller = mainForm;

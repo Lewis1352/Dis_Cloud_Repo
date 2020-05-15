@@ -23,7 +23,7 @@ namespace Cloud_Repo_App
 
         Login loginForm;
         Register registerForm;
-        SQL_conn sqlConn;
+        Server_conn sqlConn;
         File_transfer fileForm;
 
         private int currentState;
@@ -58,7 +58,7 @@ namespace Cloud_Repo_App
         public Entry_point()
         {
             InitializeComponent();
-            sqlConn = new SQL_conn();
+            sqlConn = new Server_conn();
             loginForm = new Login(this, sqlConn);
             registerForm = new Register(this, sqlConn);
             fileForm = new File_transfer(this, sqlConn);
