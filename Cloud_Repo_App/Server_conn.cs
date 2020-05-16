@@ -59,8 +59,7 @@ namespace Cloud_Repo_App
             }
             catch {
                 Console.WriteLine("failed connection");
-            }
-            
+            }           
             return doesConnect;
         }
 
