@@ -26,9 +26,6 @@ namespace Cloud_Repo_App
             sqlConn = sqlControl;
         }
 
-
-
-
         private void StoreWindowSettings()
         {
             if (WindowState == FormWindowState.Maximized)
@@ -119,6 +116,7 @@ namespace Cloud_Repo_App
         private void LogOut_button_Click(object sender, EventArgs e)
         {
             Reset_list();
+            StoreWindowSettings();
             controller.CurrentState = (int)EnumState.Login;
         }
 
